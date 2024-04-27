@@ -51,7 +51,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ### Demo
 
-# Scenario 1 : Tạo trang Home mặc định cho localhost:3000/
+### Scenario 1 : Tạo trang Home mặc định cho localhost:3000/
 - B1: Xóa folder app mặc định trong folder src
 - B2: Tạo folder app trong folder src
 - B3: Tạo file pages.tsx trong folder app vừa tạo
@@ -69,9 +69,14 @@ export default Home
 ```
 - B5: Run: npm run dev -> file layout.tsx sẽ được tự động sinh ra trong folder app đã tạo (cùng cấp với page.tsx)
 
-# Scenario 2 : 
+### Scenario 2 : 
 - Tạo trang About mặc định cho localhost:3000/about
 - Tạo trang Profile mặc định cho localhost:3000/profile
 
 - B1: Tạo folder about trong folder app
 - B2: Tạo page.tsx trong folder about
+
+### Nested Routes
+
+- localhost:3000/blog/first
+- localhost:3000/blog/second
