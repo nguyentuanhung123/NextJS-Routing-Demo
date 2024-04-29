@@ -272,23 +272,23 @@ export default ReviewDetail
 
 ### Private Folders
 
-- A private folder indicates that it is a private implementation detail and should not be considered by the routing system
+- A private folder indicates that it is a private implementation detail and should not be considered by the routing system (Thư mục riêng cho biết rằng đó là chi tiết triển khai riêng tư và hệ thống định tuyến không nên xem xét)
 
-- The folder and all its subfolders are excluded from routing
+- The folder and all its subfolders are excluded from routing (Thư mục và tất cả các thư mục con của nó được loại trừ khỏi định tuyến)
 
-- Prefix the folder name with an underscore
+- Prefix the folder name with an underscore (Tiền tố tên thư mục có dấu gạch dưới)
 
 # Private Folders contd
 
-- For separating UI logic from routing logic
+- For separating UI logic from routing logic (Để tách logic UI khỏi logic định tuyến)
 
-- For consistently organizing internal files across a project
+- For consistently organizing internal files across a project (Để tổ chức nhất quán các tệp nội bộ trong toàn bộ dự án)
 
-- For sorting and grouping files in code editors
+- For sorting and grouping files in code editors (Để sắp xếp và nhóm các tệp trong trình soạn thảo mã)
 
-- And finally, for avoiding potential naming conflicts with future Next.js file conventions
+- And finally, for avoiding potential naming conflicts with future Next.js file conventions (Và cuối cùng, để tránh xung đột đặt tên tiềm ẩn với các quy ước tệp Next.js trong tương lai)
 
-- If you want to include an underscore in URL segments, you can prefix the folder name with "%5F", which is the URL-encoded form of an underscore
+- If you want to include an underscore in URL segments, you can prefix the folder name with "%5F", which is the URL-encoded form of an underscore (Nếu bạn muốn bao gồm dấu gạch dưới trong các phân đoạn URL, bạn có thể thêm "%5F" vào tiền tố tên thư mục, đây là dạng mã hóa URL của dấu gạch dưới)
 
 ### Route Group
 
@@ -323,9 +323,9 @@ export default ReviewDetail
 
 # Route Group uses:
 
-- To organize your project in a manner that doesn't affect the URL
+- To organize your project in a manner that doesn't affect the URL (Để tổ chức dự án của bạn theo cách không ảnh hưởng đến URL)
 
-- To selectively apply a layout to certain segments while leaving others unchanged
+- To selectively apply a layout to certain segments while leaving others unchanged (Để áp dụng có chọn lọc bố cục cho các phân đoạn nhất định trong khi không thay đổi các phân đoạn khác)
 
 - B1: Tạo folder (with-auth-layout) trong folder (auth) và đặt folder login, register trong đó
 
@@ -334,3 +334,30 @@ export default ReviewDetail
 - Link: localhost:3000/register
 
 - Cách hiểu: Khi ta chạy Link thường thì nó sẽ chạy file page.tsx trong folder register nhưng nếu có file layout.tsx cũng cấp với folder register thì nó sẽ chạy vào đó và với page.tsx trong folder register sẽ ở vị trí {children}
+
+### Routing Metadata
+
+- Ensuring proper search engine optimization (SEO) is crucial for increasing visibility and attracting users (Đảm bảo tối ưu hóa công cụ tìm kiếm (SEO) phù hợp là rất quan trọng để tăng khả năng hiển thị và thu hút người dùng)
+
+- Next.js introduced the Metadata API which allows you to define metadata for each page (Next.js đã giới thiệu Metadata API cho phép bạn xác định metadata cho từng trang)
+
+- Metadata ensures accurate and relevant information is displayed when your pages are shared or indexed (Metadata đảm bảo thông tin chính xác và phù hợp được hiển thị khi các trang của bạn được chia sẻ hoặc lập chỉ mục)
+
+## Configuring Metadata
+
+- Export a static metadata object
+
+- Export a dynamic generate Metadata function
+
+# Metadata rules
+
+- Both layout.tsx and page.tsx files can export metadata. If defined in a layout, it applies to all pages in that layout, but if defined in a page, it applies only to that page (Cả hai tệp layout.tsx và page.tsx đều có thể xuất metadata. Nếu được xác định trong layout, nó áp dụng cho tất cả các page trong bố cục đó, nhưng nếu được xác định trong một page, nó chỉ áp dụng cho page đó.)
+
+- Metadata is read in order, from the root level down to the final page level (Metadata được đọc theo thứ tự, từ cấp root xuống cấp page cuối cùng)
+
+- When there's metadata in multiple places for the same route, they get combined, but page metadata will replace layout metadata if they have the same properties (Khi có metadata ở nhiều nơi cho cùng một tuyến đường, chúng sẽ được kết hợp nhưng page metadata sẽ thay thế layout metadata nếu chúng có cùng thuộc tính)
+
+- B1: Thêm metadata trong page.tsx ở folder about
+- B2: Xem thẻ head trong Element Browser để xem sự thay đổi trong title
+
+* Vấn đề 2: Trong productList, ta muốn thay đổi title theo id của từng product (Xem page.tsx trong [productId] để biết chi tiết)
