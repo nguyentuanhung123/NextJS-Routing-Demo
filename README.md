@@ -314,6 +314,23 @@ export default ReviewDetail
 
 - That component should accept a children prop that will be populated with a child page during rendering
 
-- Nếu ta xóa layout.tsx trong folder app và chạy lại npm run dev thì layout.tsx sẽ được tạo lại
+- Nếu ta xóa layout.tsx trong folder app và chạy lại npm run dev thì layout.tsx sẽ được tạo lại, ta thêm thẻ header, footer trong body
 
+### Nested Layout
 - Khi ta tạo 1 trang layout.tsx bất kỳ trong 1 folder nào như trong folder app nó sẽ lấy pagex.tsx trong đó thay vào {children} trong layout.tsx (Xem trong folder [productId] để biết rõ hơn)
+
+### Route Group Layout
+
+# Route Group uses:
+
+- To organize your project in a manner that doesn't affect the URL
+
+- To selectively apply a layout to certain segments while leaving others unchanged
+
+- B1: Tạo folder (with-auth-layout) trong folder (auth) và đặt folder login, register trong đó
+
+- B2: Tạo file layout.tsx trong folder (with-auth-layout)
+
+- Link: localhost:3000/register
+
+- Cách hiểu: Khi ta chạy Link thường thì nó sẽ chạy file page.tsx trong folder register nhưng nếu có file layout.tsx cũng cấp với folder register thì nó sẽ chạy vào đó và với page.tsx trong folder register sẽ ở vị trí {children}
