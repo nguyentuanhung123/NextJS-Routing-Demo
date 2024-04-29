@@ -270,3 +270,50 @@ const ReviewDetail = ({ params }: {
 export default ReviewDetail
 ```
 
+### Private Folders
+
+- A private folder indicates that it is a private implementation detail and should not be considered by the routing system
+
+- The folder and all its subfolders are excluded from routing
+
+- Prefix the folder name with an underscore
+
+# Private Folders contd
+
+- For separating UI logic from routing logic
+
+- For consistently organizing internal files across a project
+
+- For sorting and grouping files in code editors
+
+- And finally, for avoiding potential naming conflicts with future Next.js file conventions
+
+- If you want to include an underscore in URL segments, you can prefix the folder name with "%5F", which is the URL-encoded form of an underscore
+
+### Route Group
+
+- Allows us to logically group our routes and project files without affecting the URL path structure
+
+- Let's implement authentication routes
+
++ Register
++ Login
++ Forgot password
+
+- Khi ta tạo trang login, register, forgotpassword trong folder app thì nó không tốt cho các developer -> Phải đặt chúng trong thư mục riêng là tên là auth -> Nhưng làm vậy khi ta truy cập vào các trang login,... thì ta phải viết rõ: /auth/login -> Không tốt. Nên ta phải để tên thư mục là (auth) thì về sau ta chỉ cần viết là localhost:3000/login là được
+
+### Layouts
+
+- A page is UI that is unique to a route
+
+- A layout is UI that is shared betwwen multiple pages in the app
+
+# How to create Layouts
+
+- You can define a layout exporting a React component from a layout.js or layout.tsx file
+
+- That component should accept a children prop that will be populated with a child page during rendering
+
+- Nếu ta xóa layout.tsx trong folder app và chạy lại npm run dev thì layout.tsx sẽ được tạo lại
+
+- Khi ta tạo 1 trang layout.tsx bất kỳ trong 1 folder nào như trong folder app nó sẽ lấy pagex.tsx trong đó thay vào {children} trong layout.tsx (Xem trong folder [productId] để biết rõ hơn)
